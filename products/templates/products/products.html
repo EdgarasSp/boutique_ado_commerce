@@ -22,15 +22,15 @@
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
-                    {% for product in products %}   <!-- THIS 'products' IS FROM PRODUCTS/VIEWS.PY line 9, this section iterates data-->
+                    {% for product in products %}   <!-- THIS 'products' IS FROM PRODUCTS/VIEWS.PY line 11, this section iterates data-->
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if product.image %}  <!-- THIS IS TAKING 'image' FROM ITERATED 'products' database as now 'product'-->
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">  <!-- NOTE THAT IN .PY WE USE 'product_id' in html we use 'product.id' -->
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"> <!-- IF EXIST SHOW THIS-->
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"> <!-- IF DOES NOT SHOW PLACEHOLDER-->
                                 </a>
                                 {% endif %}
