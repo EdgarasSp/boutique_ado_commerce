@@ -38,6 +38,9 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('name')) # products model, add (annotate) colm (lower_name) to be (.LOWER) passing 'name' field
                 # annotate means add a temporary field on the model
 
+            if sortkey == 'category':
+                sortkey = 'category__name' # this double __ something like adding category and sorting data to sortkey variable
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':  # if desending
@@ -45,7 +48,7 @@ def all_products(request):
             products = products.order_by(sortkey)  # products db update sort key
             
     current_sorting = f'{sort}_{direction}' # this returns to the template, fields from main nav sort ca
-    # nos sure why this is variable, maybe default?
+    # this one is used by products.html passes value from in page sorting?
 
     context = {
         'products': products,  #add the products to the context so that it could be added to the template
