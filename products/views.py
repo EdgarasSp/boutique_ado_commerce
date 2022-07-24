@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages  # FOR REPORTING ERROR MESSAGES LINE 18
 from django.db.models import Q # USED TO GENERATE A SEARCH QUERY, THIS USED TO GET 'OR OPTION/I.E SEARCH WORD IN DESCRIPTION OR PRODUCT NAME, WITHOUT IT WORD MUST BE PRESENT IN BOTH TO BE MATCH
 from .models import Product, Category  # imports our Products database, cat used to show user cats filtered to
-
+from django.db.models.functions import Lower # this somehow fixes sort by name error due to appended 'lowe'_name 
 # Create your views here.
 
 def all_products(request):
