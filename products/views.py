@@ -11,6 +11,8 @@ def all_products(request):
     products = Product.objects.all()  # imports all our products from the database
     query = None # SET VARIABLE DEFAULT
     categories = None # SET VARIABLE DEFAULT
+    sort = None # note that default needed to be specified so that teplates load works when variable not used
+    direction = None
 
     if request.GET:  #IF THIS VIEW RECEIVES GET REQUEST FROM BASE/MOBILE NAV FORM line 60
         if 'q' in request.GET: # IF REQUEST RECEIVED US Q FOR QUERY AS VALUE SET IN BASE/MOBILE NAV FORM
@@ -27,10 +29,29 @@ def all_products(request):
             products = products.filter(category__name__in=categories) # filter products with new variables
             categories = Category.objects.filter(name__in=categories) # used to capured filtered categories to show the user.
 
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name': # is sort key is equil to name
+                sortkey = 'lower_name' # temp field, lower_name
+                products = products.annotate(lower_name=Lower('name')) # products model, add (annotate) colm (lower_name) to be (.LOWER) passing 'name' field
+                # annotate means add a temporary field on the model
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':  # if desending
+                    sortkey = f'-{sortkey}' # add - to change sorting
+            products = products.order_by(sortkey)  # products db update sort key
+            
+    current_sorting = f'{sort}_{direction}' # this returns to the template, fields from main nav sort ca
+    # nos sure why this is variable, maybe default?
+
     context = {
         'products': products,  #add the products to the context so that it could be added to the template
         'search_term': query,  # query word will show in url as q=jeans
         'current_categories': categories, # rxytacted to show current filtred categories
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)  # first 'products/products.html is where html template located, then context is to send things back to the template?
