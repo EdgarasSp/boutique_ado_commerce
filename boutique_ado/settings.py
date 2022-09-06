@@ -81,6 +81,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 # AUTHENTICATION_BACKENDS added from django ins. site
 
 AUTHENTICATION_BACKENDS = [
