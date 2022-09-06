@@ -1,4 +1,5 @@
-<li class="list-inline-item"> <!-- mobile top header-->
+<li class="list-inline-item">
+    <!-- mobile top header-->
     <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
@@ -47,7 +48,7 @@
 </li>
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
-        href="">
+        href="{% url 'view_bag' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
             <p class="my-0">

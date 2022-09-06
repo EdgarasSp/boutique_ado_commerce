@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # end
     'home',
     'products',
+    'bag',
 
 ]
 
