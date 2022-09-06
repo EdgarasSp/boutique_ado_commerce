@@ -26,8 +26,8 @@
 
   {% block corejs %}
   <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
@@ -55,10 +55,11 @@
 
       <!-- SEARCH FORM START -->
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-        <form method="GET" action="{% url 'products' %}">  <!-- TO SUBMIT/ACCESS TO ADMIN VIEWS NEED ACTION= DEFINE WHERE-->
+        <form method="GET" action="{% url 'products' %}">
+          <!-- TO SUBMIT/ACCESS TO ADMIN VIEWS NEED ACTION= DEFINE WHERE-->
           <div class="input-group w-100">
-            <input class="form-control border border-black rounded-0" type="text" name="q" 
-              placeholder="Search our site">   <!-- 'name' passes q for product/views.py if.get, input assigned to get -->
+            <input class="form-control border border-black rounded-0" type="text" name="q"
+              placeholder="Search our site"> <!-- 'name' passes q for product/views.py if.get, input assigned to get -->
             <div class="input-group-append">
               <button class="form-control btn btn-black border border-black rounded-0" type="submit">
                 <span class="icon">
@@ -96,7 +97,8 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+              href="{% url 'view_bag' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
