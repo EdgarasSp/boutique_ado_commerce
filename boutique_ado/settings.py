@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'checkout',
     #other
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -188,3 +189,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_DELIVERY_THRESHOLD = 50  # added for shopping bag to calucalte cost of delivery
 STANDARD_DELIVERY_PERCENTAGE = 10  # added for shopping bag to calucalte cost of delivery
+
+# Stripe
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51LfOGlBmPJeTcmGYgZ5yGaK1e6jqdAWq0vURHCpk7GsIiubu8P3XXu5FhMG2MdvTUugs466aAZ9NlC9nDlnAdCPH00BTMiU2Sr')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51LfOGlBmPJeTcmGYxQQdvxlo5XZUNjXWoFDtdNFZnuLGRnMmBgh214KkRNbmOr0oNZyEDGUyBOvqH9JyB77uvvpB00C1dHogcA')
