@@ -28,4 +28,5 @@ urlpatterns = [
     path('products/', include('products.urls')),  # this 'products/' is top level url to show in url bar
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # this bit is for static files
