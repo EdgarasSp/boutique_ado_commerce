@@ -3,6 +3,7 @@ from django.contrib import messages  # FOR REPORTING ERROR MESSAGES LINE 18
 from django.db.models import Q # USED TO GENERATE A SEARCH QUERY, THIS USED TO GET 'OR OPTION/I.E SEARCH WORD IN DESCRIPTION OR PRODUCT NAME, WITHOUT IT WORD MUST BE PRESENT IN BOTH TO BE MATCH
 from .models import Product, Category  # imports our Products database, cat used to show user cats filtered to
 from django.db.models.functions import Lower # this somehow fixes sort by name error due to appended 'lowe'_name 
+from .forms import ProductForm
 # Create your views here.
 
 def all_products(request):
@@ -70,3 +71,14 @@ def product_detail(request, product_id):  # product id is what item is requested
     }
 
     return render(request, 'products/product_detail.html', context)  # first 'products/products.html is where html template located, then context is to send things back to the template?
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
