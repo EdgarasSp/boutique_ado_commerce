@@ -196,7 +196,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'boutique-ado-esp-2022'
     AWS_S3_REGION_NAME = 'eu-west-2'
@@ -229,7 +229,7 @@ STANDARD_DELIVERY_PERCENTAGE = 10  # added for shopping bag to calucalte cost of
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51LfOGlBmPJeTcmGYgZ5yGaK1e6jqdAWq0vURHCpk7GsIiubu8P3XXu5FhMG2MdvTUugs466aAZ9NlC9nDlnAdCPH00BTMiU2Sr')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51LfOGlBmPJeTcmGYxQQdvxlo5XZUNjXWoFDtdNFZnuLGRnMmBgh214KkRNbmOr0oNZyEDGUyBOvqH9JyB77uvvpB00C1dHogcA')
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', 'whsec_r9z0wpq9IWB8eXbu21EJQubdx2kLLvPA')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
